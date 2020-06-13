@@ -1,7 +1,7 @@
 import { Button, H3, Navbar } from '@blueprintjs/core';
 import * as React from 'react';
 import { FeatherIcon } from '..';
-import './index.scss';
+import './AppBar.scss';
 
 const goto = (url: string) => () => (location.href = url);
 
