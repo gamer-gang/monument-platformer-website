@@ -1,0 +1,27 @@
+name: Node.js Build
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Get code
+      uses: actions/checkout@v1
+    - name: Setup Node 12
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12
+    - name: Install pnpm
+      run: npm i -g pnpm
+    - name: Install dependencies
+      run: pnpm i
+    - name: Build in production mode
+      run: npm run build:prod
+    - name: Upload main bundle analysis
+      uses: actions/upload-artifact@v2
+      with:
+        name: analysis.html
+        path: dist/views/*analyze*.html
