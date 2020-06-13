@@ -1,0 +1,37 @@
+@import '../../common/variables';
+
+.app-bar {
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12),
+    0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  background-color: $primary;
+
+  h3 {
+    color: $text-color-light;
+  }
+
+  .app-bar-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 160px;
+
+    button {
+      width: 30px;
+      height: 30px;
+      padding: 4px;
+      background: $primary-2;
+
+      &:hover {
+        background: darken($primary-2, 5%);
+      }
+      &:active {
+        background: darken($primary-2, 10%);
+      }
+
+      svg {
+        width: 20px;
+        height: 20px;
+        color: $text-color-light;
+      }
+    }
+  }
+}

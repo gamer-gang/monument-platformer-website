@@ -1,0 +1,14 @@
+@import '../../common/variables';
+
+footer {
+  background: #ddd;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: $footer-height;
+  & > * {
+    line-height: $footer-height;
+    margin: auto 0;
+    margin-left: 8px;
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "exclude": ["dist", "public", "data"],
+  "compilerOptions": {
+    // "noEmit": true,
+    "pretty": true,
+    "target": "esnext",
+    "module": "esnext",
+    "lib": ["DOM", "ESNext", "ESNext.AsyncIterable", "ES2015"],
+    "skipLibCheck": true,
+    "jsx": "react",
+    // "jsxFactory": "Preact.h",
+    "strict": true,
+    "sourceMap": true,
+    "noImplicitAny": false,
+    "moduleResolution": "node",
+    "esModuleInterop": false,
+    "downlevelIteration": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "watch": [
+    "./server",
+    ".env"
+  ],
+  "ignore": ["server/**/*.spec.ts"],
+  "exec": "cross-env TS_NODE_PROJECT=\"tsconfig-cjs.json\" ts-node ./server/index.ts",
+  "ext": "ts"
+}

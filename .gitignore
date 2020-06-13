@@ -1,0 +1,6 @@
+node_modules
+dist
+.env
+
+# won't be using for anything other than package-yaml
+npm-autoload.*

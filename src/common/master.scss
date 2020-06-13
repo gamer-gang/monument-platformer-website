@@ -1,0 +1,24 @@
+@import './variables';
+
+*:not(body):not(#app) {
+  box-sizing: border-box;
+}
+
+html {
+  body {
+    font-family: 'Ubuntu';
+    font-weight: 300;
+
+    div#app {
+      position: absolute;
+      min-height: 100vh;
+      width: 100vw;
+
+      main {
+        margin: 16px;
+        margin-top: 64px;
+        padding-bottom: $footer-height;
+      }
+    }
+  }
+}

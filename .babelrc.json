@@ -1,0 +1,12 @@
+{
+  "presets": [["@babel/env", { "modules": false }], "@babel/react"],
+  "plugins": [
+    "styled-components",
+    "@babel/proposal-class-properties",
+    "@babel/proposal-object-rest-spread",
+    "@babel/syntax-top-level-await",
+    "@babel/transform-runtime"
+  ],
+  "sourceType": "unambiguous",
+  "sourceMaps": "both"
+}
