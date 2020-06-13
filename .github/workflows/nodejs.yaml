@@ -19,7 +19,9 @@ jobs:
     - name: Install dependencies
       run: pnpm i
     - name: Build in production mode
-      run: npm run build:prod
+      run: pnpm run build:prod
+      env: 
+        BLUEPRINT_NAMESPACE: bp3
     - name: Upload main bundle analysis
       uses: actions/upload-artifact@v2
       with:
