@@ -66,7 +66,6 @@ devDependencies:
   nodemon: 2.0.4
   normalize.css: 8.0.1
   optimize-css-assets-webpack-plugin: 5.0.3_webpack@5.0.0-beta.17
-  package-yaml: 1.0.0
   postcss-loader: 3.0.0
   preact: 10.4.4
   prettier: 2.0.5
@@ -1552,19 +1551,9 @@ packages:
     dev: true
     resolution:
       integrity: sha512-tHq6qdbT9U1IRSGf14CL0pUlULksvY9OZ+5eEgl1N7t+OA3tGvNpxJCzuKQlsNgCVwbAs670L1vcVQi8j9HjnA==
-  /@types/node/12.12.47:
-    dev: true
-    resolution:
-      integrity: sha512-yzBInQFhdY8kaZmqoL2+3U5dSTMrKaYcb561VU+lDzAYvqt+2lojvBEy+hmpSNuXnPTx7m9+04CzWYOUqWME2A==
   /@types/node/14.0.13:
     resolution:
       integrity: sha512-rouEWBImiRaSJsVA+ITTFM6ZxibuAlTuNOCyxVbwreu6k6+ujs7DfnU9o+PShFhET78pMBl3eH+AGSI5eOTkPA==
-  /@types/npm/2.0.31:
-    dependencies:
-      '@types/node': 14.0.13
-    dev: true
-    resolution:
-      integrity: sha512-v4JpUx83wVGItleYsnYeZrM8NTLSnYDfTE/iGm4owy6zZPNFNmnsvvrxiYtG3cVHt/XutzTjUBQ9Bh8bnvEkCw==
   /@types/optimize-css-assets-webpack-plugin/5.0.1:
     dependencies:
       '@types/webpack': 4.41.17
@@ -3514,10 +3503,6 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha1-gKTdMjdIOEv6JICDYirt7Jgq3/M=
-  /deep-diff/1.0.2:
-    dev: true
-    resolution:
-      integrity: sha512-aWS3UIVH+NPGCD1kki+DCU9Dua032iSsO43LqQpcs4R3+dVv7tX0qBGjiVHJHjplsoUM2XRO/KB92glqc68awg==
   /deep-equal/1.1.1:
     dependencies:
       is-arguments: 1.0.4
@@ -6978,13 +6963,6 @@ packages:
     dev: true
     resolution:
       integrity: sha1-h6kGXNs1XTGC2PlM4RGIuCXGijs=
-  /node-module-polyfill/1.0.1:
-    dependencies:
-      '@types/node': 12.12.47
-      semver: 6.3.0
-    dev: true
-    resolution:
-      integrity: sha512-ScK3fK8UAlhG9Dm9egLZrjCDy0VPtBVwGta4pi1UrQE1JqfMFzDfltg8ERTZLKOnW6Se46PSgpSTgW5hEtvYww==
   /node-modules-regexp/1.0.0:
     dev: true
     engines:
@@ -7118,15 +7096,6 @@ packages:
   /normalize.css/8.0.1:
     resolution:
       integrity: sha512-qizSNPO93t1YUuUhP22btGOo3chcvDFqFaj2TRybP0DMxkHOCTYwp3n34fel4a31ORXy4m1Xq0Gyqpb5m33qIg==
-  /npm-autoloader/1.1.1:
-    dependencies:
-      '@types/npm': 2.0.31
-      node-module-polyfill: 1.0.1
-      npmlog: 4.1.2
-      yaml: 1.10.0
-    dev: true
-    resolution:
-      integrity: sha512-g1g39A/C0Rrstv6sGGxP453vZinD6r66Phb21Bq2Jsx6zGnkMYCY2wpm/KU8v3li1ZzHl09/+pCPS9pJHh1ZlA==
   /npm-run-path/1.0.0:
     dependencies:
       path-key: 1.0.0
@@ -7512,18 +7481,6 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-k3bdm2n25tkyxcjSKzB5x8kfVxlMdgsbPr0GkZcwHsLpba6cBjqCt1KlcChKEvxHIcTB1FVMuwoijZ26xex5MQ==
-  /package-yaml/1.0.0:
-    dependencies:
-      deep-diff: 1.0.2
-      npm-autoloader: 1.1.1
-      npmlog: 4.1.2
-      osenv: 0.1.5
-      pkg-dir: 4.2.0
-      reflect-metadata: 0.1.13
-      yaml: 1.10.0
-    dev: true
-    resolution:
-      integrity: sha512-oeMdNmuaXZFLQSzl9qN6zqV8RHlXk2U893z/K+9i5d3P8xz+0UA+jfExYPP3a9m7ZaA63qtMFbfhBo0syGoBWg==
   /param-case/3.0.3:
     dependencies:
       dot-case: 3.0.3
@@ -8475,10 +8432,6 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-z5Fqsf1fHxbfsggi3W7H9zDCr94=
-  /reflect-metadata/0.1.13:
-    dev: true
-    resolution:
-      integrity: sha512-Ts1Y/anZELhSsjMcU605fU9RE4Oi3p5ORujwbIKXfWa+0Zxs510Qrmrce5/Jowq3cHSZSJqBjypxmHarc+vEWg==
   /regenerate-unicode-properties/8.2.0:
     dependencies:
       regenerate: 1.4.1
@@ -10646,12 +10599,6 @@ packages:
   /yallist/4.0.0:
     resolution:
       integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==
-  /yaml/1.10.0:
-    dev: true
-    engines:
-      node: '>= 6'
-    resolution:
-      integrity: sha512-yr2icI4glYaNG+KWONODapy2/jDdMSDnrONSjblABjD9B4Z5LgiircSt8m8sRZFNi08kG9Sm0uSHtEmP3zaEGg==
   /yargs-parser/10.1.0:
     dependencies:
       camelcase: 4.1.0
@@ -10764,7 +10711,6 @@ specifiers:
   nodemon: ^2.0.4
   normalize.css: ^8.0.1
   optimize-css-assets-webpack-plugin: ^5.0.3
-  package-yaml: ^1.0.0
   postcss-loader: ^3.0.0
   preact: ^10.4.4
   prettier: ^2.0.5
