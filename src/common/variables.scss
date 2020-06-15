@@ -25,3 +25,10 @@ $text-color-dark: #000000;
 $text-color-dark-muted: #696969; // nice
 
 $footer-height: 2.5rem;
+
+$intents: (
+  'primary': lighten($primary, 5%),
+  'success': darken($primary-3, 5%),
+  'warning': darken($secondary, 5%),
+  'danger': lighten($tertiary-dark, 5%),
+);

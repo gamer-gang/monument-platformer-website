@@ -11,7 +11,6 @@ dotenv.config();
 const devMode = process.env.NODE_ENV === 'development';
 
 const dllNames: string[] = [];
-let dllScriptTags = '';
 
 const dll = (
   name: string,

@@ -1,0 +1,28 @@
+@import '../../common/variables';
+@import '../../common/master';
+
+.content-section {
+  margin-top: 32px;
+}
+
+.panel {
+  .panel-section {
+    margin-bottom: 24px;
+  }
+}
+
+.panel-section img {
+  width: 100%;
+  margin-bottom: 2rem;
+  max-width: 800px;
+}
+
+.#{$ns}-tab-list {
+  height: calc(100vh - 224px);
+  // border: 1px solid $primary-dark;
+  // padding: 8px 2px 8px 8px;
+  // border-radius: 4px;
+  // box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12),
+  // 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+
+}

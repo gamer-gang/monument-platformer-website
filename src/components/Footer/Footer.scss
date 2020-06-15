@@ -1,14 +1,24 @@
 @import '../../common/variables';
 
 footer {
-  background: #ddd;
-  position: absolute;
+  background: #dfdfdf;
+  position: fixed;
   bottom: 0;
   width: 100%;
   height: $footer-height;
-  & > * {
+  .footer-group-left { float: left; }
+  .footer-group-right { float: right; }
+  & > div > * {
     line-height: $footer-height;
-    margin: auto 0;
-    margin-left: 8px;
+    margin: auto 4px;
+    &:first-child {
+      margin-left: 8px;
+    }
+    &:last-child {
+      margin-right: 8px;
+    }
   }
+  // & > * {
+  //   clear: both;
+  // }
 }

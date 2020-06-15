@@ -7,6 +7,7 @@ import * as OptimizeCSSPlugin from 'optimize-css-assets-webpack-plugin';
 import * as path from 'path';
 // @ts-ignore
 import * as RemovePlugin from 'remove-files-webpack-plugin';
+// eslint-disable-next-line @blueprintjs/classes-constants
 import * as HTMLScriptPlugin from 'script-ext-html-webpack-plugin';
 import * as TerserPlugin from 'terser-webpack-plugin';
 import {
@@ -23,7 +24,7 @@ import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-serv
 dotenv.config();
 
 const devMode = process.env.NODE_ENV === 'development';
-// const hmr = !!process.env.WEBPACK_HMR;
+const hmr = !!process.env.WEBPACK_HMR;
 const devServer = process.argv.some(v => v === 'webpack-dev-server');
 
 const faviconTags = `
@@ -49,21 +50,7 @@ const statsConfig = devMode
 
 export default <Configuration>{
   mode: devMode ? 'development' : 'production',
-  entry: ((folders: string) => {
-    const output: { [index: string]: [string, ...string[]] } = {};
-    for (const folder of folders.split(' '))
-      output[folder] =
-        // hmr
-        //   ? [
-        //       'webpack-dev-server/client?http://localhost:8080',
-        //       'webpack/hot/only-dev-server',
-        //       `./src/${folder}/index.tsx`,
-        //     ]
-        //   :
-        [`./src/pages/${folder}/index.tsx`];
-
-    return output;
-  })('main about downloads'),
+  entry: './src/pages',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: devMode ? '[name].js' : '[name].[contenthash].js',
@@ -81,12 +68,10 @@ export default <Configuration>{
     },
   },
   devServer: <WebpackDevServerConfiguration>{
-    index: './views/home.html',
+    index: './views/index.html',
     historyApiFallback: {
       rewrites: [
-        { from: /^\/$/, to: '/views/home.html' },
-        { from: /^\/about\/?$/, to: '/views/about.html' },
-        { from: /^\/downloads\/?$/, to: '/views/downloads.html' },
+        { from: /.*/, to: '/views/index.html' },
       ],
     },
     host: '0.0.0.0',
@@ -115,7 +100,7 @@ export default <Configuration>{
       }
     : {
         // TODO fix this
-        usedExports: false,
+        usedExports: true,
 
         // runtimeChunk: 'single',
         minimize: true,
@@ -171,7 +156,7 @@ export default <Configuration>{
             },
             {
               folder: './dist/views',
-              method: (itemPath: string) => /analyze-\d+\.html/.test(itemPath),
+              method: (itemPath: string) => /analyze/gi.test(itemPath),
             },
           ],
           logWarning: true,
@@ -215,19 +200,13 @@ export default <Configuration>{
               minify: 'auto',
               faviconTags,
               template: './src/pages/template.ejs',
-              preHead: '<link rel="stylesheet" href="/library/blueprint.css"/>',
-              // preBody: dllNames
-              //   .map(name => `<script defer src="/library/${name}.dll.js"></script>`)
-              //   .join('\n'),
               ...options,
             })
           );
 
         return output;
       })({
-        main: { title: 'Home', filename: './views/home.html' },
-        about: { title: 'About', filename: './views/about.html' },
-        downloads: { title: 'Downloads', filename: './views/downloads.html' },
+        main: { title: 'Home', filename: './views/index.html' },
       }),
     ];
 
@@ -241,11 +220,11 @@ export default <Configuration>{
           new BundleAnalyzerPlugin({
             openAnalyzer: false,
             analyzerMode: 'static',
-            reportFilename: `./views/analyze-${Date.now()}.html`,
+            reportFilename: `./views/analyze.html`,
           })
         );
 
-    false // hmr
+    hmr
       ? plugins.push(new HotModuleReplacementPlugin())
       : plugins.push(
           new MiniCSSExtractPlugin({
@@ -269,7 +248,7 @@ export default <Configuration>{
       {
         test: /\.(sa|sc|c)ss$/i,
         use: [
-          false /* hmr */ ? 'style-loader' : MiniCSSExtractPlugin.loader,
+          hmr ? 'style-loader' : MiniCSSExtractPlugin.loader,
           { loader: 'css-loader', options: { sourceMap: true } },
           { loader: 'postcss-loader', options: { sourceMap: true, plugins: [autoprefixer()] } },
           { loader: 'sass-loader' },

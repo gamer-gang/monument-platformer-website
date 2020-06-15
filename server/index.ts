@@ -18,8 +18,6 @@ app.use(compression());
 app.use(express.static(resolve('public'), { maxAge: Number.MAX_VALUE }))
 app.use(express.static(resolve('dist'), { maxAge: Number.MAX_VALUE }))
 
-app.get('/', file('./dist/views/home.html'));
-app.get('/about', file('./dist/views/about.html'));
-app.get('/downloads', file('./dist/views/downloads.html'));
+app.get('*', file('./dist/views/index.html'));
 
-app.listen(process.env.PORT);
+app.listen(process.env.PORT, () => console.log('Server listening on port ' + process.env.PORT));

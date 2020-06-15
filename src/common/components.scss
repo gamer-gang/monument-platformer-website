@@ -1,0 +1,46 @@
+@import './variables';
+
+
+.#{$ns}-tab-list {
+  .#{$ns}-heading {
+    margin-top: 8px;
+    margin-bottom: 4px;
+  }
+}
+
+.#{$ns}-button {
+  // @include interactive(map-get($intents, 'primary'));
+  // color: $text-color-light;
+
+
+  @each $intent, $color in $intents {
+    &.#{$ns}-intent-#{$intent} {
+      @include interactive($color);
+      color: $text-color-light;
+    }
+  }
+}
+
+.#{$ns}-callout {
+  &.#{$ns}-callout-icon .feather-icon {
+    position: absolute;
+    left: 10px;
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  @each $intent, $color in $intents {
+    $adjusted-color: adjust-color($color: $color, $saturation: -25%, $lightness: -15%);
+
+    &.#{$ns}-intent-#{$intent} {
+      .#{$ns}-heading {
+        color: $adjusted-color;
+      }
+      &.#{$ns}-callout-icon .feather-icon svg {
+        color: $adjusted-color;
+      }
+    }
+  }
+}

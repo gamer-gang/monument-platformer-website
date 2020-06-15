@@ -1,5 +1,5 @@
 node_modules
-dist
+# dist
 .env
 
 # won't be using for anything other than package-yaml

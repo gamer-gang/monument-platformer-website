@@ -1,9 +1,9 @@
-import { Button, H3, Navbar } from '@blueprintjs/core';
+import { Button, H3, Navbar, Tooltip, ButtonGroup, AnchorButton } from '@blueprintjs/core';
 import * as React from 'react';
 import { FeatherIcon } from '..';
 import './AppBar.scss';
-
-const goto = (url: string) => () => (location.href = url);
+import { goto, renderApp } from '../../common/util';
+import { NavLink } from 'react-router-dom';
 
 interface AppBarProps {
   title: string;
@@ -12,30 +12,51 @@ interface AppBarProps {
 export class AppBar extends React.Component<AppBarProps> {
   render() {
     return (
-      <Navbar fixedToTop className="app-bar">
-        <Navbar.Group align="left">
-          <Navbar.Heading>
-            <H3 style={{ marginBottom: 0 }}>{this.props.title}</H3>
-          </Navbar.Heading>
-        </Navbar.Group>
-        <Navbar.Group align="right" className="app-bar-buttons">
-          <Button onClick={goto('/')} title="Home">
-            <FeatherIcon icon="home" />
-          </Button>
-          <Button onClick={goto('/about')} title="About">
-            <FeatherIcon icon="info" />
-          </Button>
-          <Button onClick={goto('/downloads')} title="Downloads">
-            <FeatherIcon icon="download" />
-          </Button>
-          <Button
-            onClick={goto('https://github.com/gamer-gang/monument-platformer')}
-            title="GitHub repository"
-          >
-            <FeatherIcon icon="github" />
-          </Button>
-        </Navbar.Group>
-      </Navbar>
+      <>
+        <div id="top"></div>
+        <Navbar fixedToTop className="app-bar">
+          <Navbar.Group align="left">
+            <Navbar.Heading>
+              <H3 style={{ marginBottom: 0 }}>{this.props.title}</H3>
+            </Navbar.Heading>
+          </Navbar.Group>
+          <Navbar.Group align="right" className="app-bar-buttons">
+            <ButtonGroup>
+              <Tooltip content="Home">
+                <NavLink exact to="/">
+                  <Button aria-label="Home" icon={<FeatherIcon icon="home" />} />
+                </NavLink>
+              </Tooltip>
+              <Tooltip content="About">
+                <NavLink to="/about">
+                  <Button aria-label="About" icon={<FeatherIcon icon="info" />} />
+                </NavLink>
+              </Tooltip>
+              <Tooltip content="Downloads">
+                <NavLink to="/downloads">
+                  <Button aria-label="Downloads" icon={<FeatherIcon icon="download" />} />
+                </NavLink>
+              </Tooltip>
+            </ButtonGroup>
+            <Tooltip
+              content={
+                <span>
+                  GitHub{' '}
+                  <FeatherIcon icon="external-link" height={18} width={18} />
+                </span>
+              }
+            >
+              <AnchorButton
+                aria-label="GitHub repository"
+                href="https://github.com/gamer-gang/monument-platformer"
+                rel="noreferrer"
+                target="_blank"
+                icon={<FeatherIcon icon="github" />}
+              />
+            </Tooltip>
+          </Navbar.Group>
+        </Navbar>
+      </>
     );
   }
 }

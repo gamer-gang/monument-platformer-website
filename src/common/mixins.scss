@@ -1,0 +1,10 @@
+@mixin interactive($color) {
+  background: $color;
+
+  &:hover:not(:disabled):not(.#{$ns}-disabled) {
+    background: darken($color, 5%);
+  }
+  &:active:not(:disabled):not(.#{$ns}-disabled) {
+    background: darken($color, 10%);
+  }
+}

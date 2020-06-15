@@ -1,4 +1,5 @@
 @import '../../common/variables';
+@import '../../common/mixins';
 
 .app-bar {
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12),
@@ -12,20 +13,32 @@
   .app-bar-buttons {
     display: flex;
     justify-content: space-between;
-    width: 160px;
+    width: 124px;
 
-    button {
+    a.active {
+      .#{$ns}-button {
+        background-color: $primary-3;
+        &:hover {
+          background-color: darken($primary-3, 5%);
+        }
+      }
+    }
+
+    .#{$ns}-button-group:not(.#{$ns}-minimal) > .#{$ns}-button,
+    .#{$ns}-button-group:not(.#{$ns}-minimal) > .#{$ns}-popover-wrapper .#{$ns}-button {
+      margin: 0;
+    }
+
+    .#{$ns}-button {
       width: 30px;
       height: 30px;
       padding: 4px;
-      background: $primary-2;
 
-      &:hover {
-        background: darken($primary-2, 5%);
+      &:focus {
+        outline: 0;
       }
-      &:active {
-        background: darken($primary-2, 10%);
-      }
+
+      @include interactive(darken($primary-2, 5%));
 
       svg {
         width: 20px;
