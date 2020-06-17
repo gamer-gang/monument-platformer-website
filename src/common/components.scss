@@ -7,6 +7,9 @@
     margin-bottom: 4px;
   }
 }
+.#{$ns}-code {
+  font-family: 'Fira Code';
+}
 
 .#{$ns}-button {
   // @include interactive(map-get($intents, 'primary'));

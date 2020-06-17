@@ -10,6 +10,7 @@ import {
   Callout,
   H4,
   Button,
+  Code,
 } from '@blueprintjs/core';
 import * as React from 'react';
 import './about.scss';
@@ -67,35 +68,41 @@ const GeneralPanels = {
       <Panel.Section>
         <H3>About Monument Platformer</H3>
         <p>Monument Platfromer is our first mobile app/game. It is written in Dart.</p>
-        <br /><br />
-        <em>Screenshot coming soon</em>
+        <p>
+          The player moves around as a <Code>dodgerblue</Code> square, and their goal is to collect
+          items across the levels to win the game.
+        </p>
+        <br />
+        <br />
+        <img src="/platformer-1.png" alt="Game screenshot" />
+        <img src="/platformer-2.png" alt="Game screenshot" />
+        <img src="/platformer-3.png" alt="Game screenshot" />
       </Panel.Section>
     </Panel>
   ),
-  _aboutUsText: 'Show email',
   AboutUs: () => {
     const [state, setState] = React.useState({
       emailButton1: (email: string) => {
-        setState((prevState) => {
+        setState(prevState => {
           return {
             ...prevState,
             emailButton1: () => state.mailto(email),
             emailText1: email,
-          }
-        })
+          };
+        });
       },
       emailButton2: (email: string) => {
-        setState((prevState) => {
+        setState(prevState => {
           return {
             ...prevState,
             emailButton2: () => state.mailto(email),
             emailText2: email,
-          }
-        })
+          };
+        });
       },
       mailto: (email: string) => window.open(`maito:${email}`),
       emailText1: 'Show email',
-      emailText2: 'Show email'
+      emailText2: 'Show email',
     });
     return (
       <Panel>
@@ -109,7 +116,9 @@ const GeneralPanels = {
             onClick={() => state.emailButton1('devdoge1@gmail.com')}
           >
             {state.emailText1}
-          </Button><br /><br />
+          </Button>
+          <br />
+          <br />
           <p>I program things.</p>
         </Panel.Section>
 
@@ -120,7 +129,9 @@ const GeneralPanels = {
             onClick={() => state.emailButton2('notrealnobodey@gmail.com')}
           >
             {state.emailText2}
-          </Button><br /><br />
+          </Button>
+          <br />
+          <br />
           <p>I also code.</p>
         </Panel.Section>
       </Panel>
